@@ -399,22 +399,22 @@
             <File>
               <FileName>DS18B20.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\13-1 DS18B20温度读取\DS18B20.c</FilePath>
+              <FilePath>.\DS18B20.c</FilePath>
             </File>
             <File>
               <FileName>DS18B20.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\13-1 DS18B20温度读取\DS18B20.h</FilePath>
+              <FilePath>.\DS18B20.h</FilePath>
             </File>
             <File>
               <FileName>OneWire.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\13-1 DS18B20温度读取\OneWire.c</FilePath>
+              <FilePath>.\OneWire.c</FilePath>
             </File>
             <File>
               <FileName>OneWire.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\13-1 DS18B20温度读取\OneWire.h</FilePath>
+              <FilePath>.\OneWire.h</FilePath>
             </File>
           </Files>
         </Group>

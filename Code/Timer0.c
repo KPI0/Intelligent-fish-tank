@@ -62,8 +62,8 @@ void Timer0_Routine() interrupt 1
 				}
 			}
 		}
-		}
-		if(HourCount==3)
+	}
+		if(Sec==10)
 		{
 			if(zhuanFlag == 0)
 			{

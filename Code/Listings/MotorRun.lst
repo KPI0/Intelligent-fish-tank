@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   MOTORRUN                                                          10/21/2022 22:11:35 PAGE 1   
+C51 COMPILER V9.52.0.0   MOTORRUN                                                          10/23/2022 15:01:55 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MOTORRUN
@@ -62,7 +62,7 @@ line level    source
   52   4              case 5:MA=0;MB=1;MC=0;MD=0;break;
   53   4              case 6:MA=1;MB=1;MC=0;MD=0;break;
   54   4              case 7:MA=1;MB=0;MC=0;MD=0;break;
-C51 COMPILER V9.52.0.0   MOTORRUN                                                          10/21/2022 22:11:35 PAGE 2   
+C51 COMPILER V9.52.0.0   MOTORRUN                                                          10/23/2022 15:01:55 PAGE 2   
 
   55   4            }
   56   3            if(step==7)step=0;
