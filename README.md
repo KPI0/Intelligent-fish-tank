@@ -7,5 +7,6 @@
 - ### 水温显示
 - ### 液位显示
 ## Proteus仿真图：
-![](https://github.com/KPI0/Intelligent-fish-tank/blob/main/Proteus.png)
+![](https://github.com/KPI0/Intelligent-fish-tank/blob/main/Proteus.png)   
+注意：利用Proteus仿真，温度无法读取，原因未知。
 ## 实物图：
