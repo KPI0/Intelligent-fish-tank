@@ -7,42 +7,35 @@
 #include "OneWire.h"
 #include "DS18B20.h"
 #include <intrins.h>
-
+//HC-SR04超声波引脚
 sbit TRIG=P1^6;
 sbit ECHO=P1^7;
-
+//KEY、1KEY2按键引脚
 sbit KEY1=P3^1;
 sbit KEY2=P3^0;
-//sbit RE1=P2^0;
-//sbit RE2=P2^1;
-
+//LCD1602数据引脚
 sbit LCD_E=P2^7;
 sbit LCD_RW=P2^5;
 sbit LCD_RS=P2^6;
-
+//按键输出控制ULN2003引脚
 sbit RE1=P2^0;
 sbit RE2=P2^1;
 
-
-
-
 unsigned char code word3[]="0123456789";
-
 unsigned int Set=40;
 unsigned int Now;
 unsigned int count_T0=0,count_1ms,miao=0;
 unsigned int High_Time;
 unsigned char flag;
-//********函数总集*********
+
+/********函数总集*********/
 void KEY1_Scan();
 void KEY2_Scan();
 void lcd_write_com(unsigned char com);
 void lcd_write_data(unsigned char dat);
 void lcdInit();
 void display_LCD(unsigned char hang,unsigned char lie,unsigned dat);
-
 void Timer0_Init();
-
 void delayms(unsigned char t);
 void scan_key();
 unsigned int WAVE();
@@ -51,10 +44,9 @@ void Timer_delay(unsigned int BS);
 void jidianqiInit();
 float T;
 
-//************************主函数************************
+/************************主函数************************/
 void main()
 {
-
 		unsigned char bai,shi,ge;
 	  jidianqiInit();
 	
@@ -72,7 +64,6 @@ void main()
 	LCD_ShowString(1,15,"C");
 	LCD_ShowString(2,1,"High:");
 	LCD_ShowString(2,15,"cm");
-	//LCD_ShowString(2,1,"High:");
 	while(1)
 	{
 		DS18B20_ConvertT();	//转换温度
@@ -114,7 +105,6 @@ void main()
 	}
 }
 
-
 void Timer_delay(unsigned int BS)//T1延时±0.5ms
 {
   unsigned int k;
@@ -126,21 +116,10 @@ void Timer_delay(unsigned int BS)//T1延时±0.5ms
 		TF1=0;
 	}
 }
-//*显示开始的字母*/
+/*显示开始的字母*/
 void display_string()
 {
 	unsigned m,n;
-//  for(m=0;m<4;m++)
-//	{
-//    display_LCD(0,m,word1[m]);
-//		delayms(1);
-//	}	
-    
-//	for(n=0;n<16;n++)
-//	{
-//    display_LCD(1,n,word2[n]);
-//		delayms(1);
-//	}		
 }
 /*超声波计算时间*/
 unsigned int WAVE()
@@ -172,40 +151,40 @@ unsigned int WAVE()
 /*LCD初始化*/
 void lcdInit()
 {
-  lcd_write_com(0x38);//×Ö·ûÎª5*7µãÕó
-	lcd_write_com(0x0c); //ÏÔÊ¾¿ª ¹â±ê¹Ø ÉÁË¸¹Ø
-	lcd_write_com(0x06);//Ð´ÈëÊý¾Ýºó¹â±êÓÒÒÆÒ»Î» ÏÔÊ¾ÆÁ²»¶¯
-	lcd_write_com(0x01);//ÇåÆÁ
-	lcd_write_com(0x80);//ÉèÖÃÊý¾ÝÖ¸ÕëÆðµã
+  lcd_write_com(0x38);//字符为5*7点阵
+	lcd_write_com(0x0c);//显示开、光标关、闪烁关
+	lcd_write_com(0x06);//写入数据后光标右移一位，显示屏不动
+	lcd_write_com(0x01);//清屏
+	lcd_write_com(0x80);//设置数据指针起点
 }
 
-/**¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ªLCDÐ´ÃüÁî¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª*/
+/*LCD写命令*/
 void lcd_write_com(unsigned char com)
 {
   LCD_E=0;
-	LCD_RS=0;//ÃüÁî
-	LCD_RW=0;//Ð´Èë
+	LCD_RS=0;//命令
+	LCD_RW=0;//写入
 	P0=com;
 	delayms(1);
-	LCD_E=1;//Ð´ÈëÊ±Ðò
+	LCD_E=1;//写入时序
 	delayms(1);
 	LCD_E=0;
 
 }
 
-/*¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ªLCDÐ´Êý¾Ý¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª*/
+/*LCD写数据*/
 void lcd_write_data(unsigned char dat)
 {
   LCD_E=0;
-	LCD_RW=0;//Ð´Èë
-	LCD_RS=1;//Êý¾Ý
+	LCD_RW=0;//写入
+	LCD_RS=1;//数据
 	P0=dat;
 	delayms(1);
 	LCD_E=1;
 	delayms(1);
 	LCD_E=0;
 }
-//*¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ªÒº¾§ÆÁÏÔÊ¾¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª*/
+/*LCD显示*/
 void display_LCD(unsigned char hang,unsigned char lie,unsigned value) 
 {
   if(hang==0)
@@ -220,7 +199,7 @@ void display_LCD(unsigned char hang,unsigned char lie,unsigned value)
 }
 
 
-/*¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¶¨Ê±Æ÷³õÊ¼»¯¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª*///T1ÑÓÊ±£¬T0ÖÐ¶Ï
+/*定时器初始化*///T1延时，T0中断
 void Timer0_Init()
 {
 	//count_T0=0;
@@ -239,24 +218,15 @@ void Timer0() interrupt 1
 
 }
 
-//*¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª°´¼üÉ¨Ãè¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª*/
+/*按键扫描*/
 void scan_key()
 {
-
+	
 	P1=0xf0;
 	if(P1!=0xff)delayms(10);
-	//key_up=0;
-//	if(P1!=0xff)
-//	{
-//	  switch(P1&0xff)
-//		{
-//		    case 0xfe :Set=Set+10;break;//key_up  p1.0
-//				case 0xfd :Set=Set-10;break;//key_dn  p1.1
-//		}
-//		while(P1!=0xff);
-//	}
+
 }
-//*¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª*/
+
 void delayms(unsigned char t)
 {
   unsigned i,j;
@@ -264,8 +234,7 @@ void delayms(unsigned char t)
 	   for(j=0;j<120;j++);
 }
 
-
-//***********继电器初始化******************
+/***********继电器初始化******************/
 /**
   * @brief  加水和抽水的初始化
   * @param  无
@@ -278,15 +247,13 @@ void jidianqiInit ()
 		RE2=0;
 }
 
-//***********按键一控制换水***************
+/***********按键一控制换水***************/
 /**
   * @brief  按键一按下控制直流电机同时进行加水和抽水
   * @param  无
   * @retval 无
   */
 
-//sbit KEY1=P3^1;
-//sbit KEY2=P3^0;
 void KEY1_Scan()
 {
 	if(KEY1 == 0)
@@ -308,8 +275,8 @@ void KEY2_Scan()
 		if(KEY2 == 0)
 		{
 			Delay10us();
-			MotorRun(4389/2,1,100);					//	nangle=4096ÎªÒ»È¦£»	drct=0ÎªÄæÊ±Õë×ª¶¯£¬drct=1ÎªË³Ê±Õë×ª¶¯£»  speed×ªËÙ75`400£»
-			MotorRun(4389/2,0,100);					//	nangle=4096ÎªÒ»È¦£»	drct=0ÎªÄæÊ±Õë×ª¶¯£¬drct=1ÎªË³Ê±Õë×ª¶¯£»  speed×ªËÙ75`400£»
+			MotorRun(4389/2,1,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动； speed转速75`400；
+			MotorRun(4389/2,0,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动； speed转速75`400；
 		}
 	}
 }
