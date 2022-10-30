@@ -7,17 +7,17 @@
 #include "OneWire.h"
 #include "DS18B20.h"
 #include <intrins.h>
-//HC-SR04超声波引脚
+//HC-SR04超声波模块引脚
 sbit TRIG=P1^6;
 sbit ECHO=P1^7;
-//KEY、1KEY2按键引脚
+//KEY1、KEY2按键控制引脚
 sbit KEY1=P3^1;
 sbit KEY2=P3^0;
-//LCD1602数据引脚
+//LCD1602显示屏数据引脚
 sbit LCD_E=P2^7;
 sbit LCD_RW=P2^5;
 sbit LCD_RS=P2^6;
-//按键输出控制ULN2003引脚
+//按键输出控制ULN2003驱动板引脚
 sbit RE1=P2^0;
 sbit RE2=P2^1;
 
@@ -47,8 +47,8 @@ float T;
 /************************主函数************************/
 void main()
 {
-		unsigned char bai,shi,ge;
-	  jidianqiInit();
+	unsigned char bai,shi,ge;
+	jidianqiInit();
 	
 	lcdInit();
 	display_string();
@@ -202,14 +202,11 @@ void display_LCD(unsigned char hang,unsigned char lie,unsigned value)
 /*定时器初始化*///T1延时，T0中断
 void Timer0_Init()
 {
-	//count_T0=0;
-	//miao=0;
   TMOD=0x11;
 	TH0=0;
 	TL0=0;
-	//ET0=1;
-	TR0=1;TR1=1;
-	//EA=1;
+	TR0=1;
+	TR1=1;
 }
 void Timer0() interrupt 1
 {

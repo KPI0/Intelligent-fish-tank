@@ -9,372 +9,6 @@ Project File Date:  10/24/2022
 <h2>Output:</h2>
 Build target 'Target 1'
 compiling main.c...
-main.c(127): warning C280: 'm': unreferenced local variable
-main.c(127): warning C280: 'n': unreferenced local variable
-main.c(302): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(127): warning C280: 'm': unreferenced local variable
-main.c(127): warning C280: 'n': unreferenced local variable
-main.c(302): warning C206: 'Delay10us': missing function-prototype
-compiling Timer0.c...
-compiling delaytime10us.c...
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 2 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(127): warning C280: 'm': unreferenced local variable
-main.c(127): warning C280: 'n': unreferenced local variable
-main.c(302): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(127): warning C280: 'm': unreferenced local variable
-main.c(127): warning C280: 'n': unreferenced local variable
-main.c(300): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(127): warning C280: 'm': unreferenced local variable
-main.c(127): warning C280: 'n': unreferenced local variable
-main.c(290): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(127): warning C280: 'm': unreferenced local variable
-main.c(127): warning C280: 'n': unreferenced local variable
-main.c(290): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(127): warning C280: 'm': unreferenced local variable
-main.c(127): warning C280: 'n': unreferenced local variable
-main.c(290): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(121): warning C280: 'm': unreferenced local variable
-main.c(121): warning C280: 'n': unreferenced local variable
-main.c(273): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(121): warning C280: 'm': unreferenced local variable
-main.c(121): warning C280: 'n': unreferenced local variable
-main.c(273): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(121): warning C280: 'm': unreferenced local variable
-main.c(121): warning C280: 'n': unreferenced local variable
-main.c(273): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(121): warning C280: 'm': unreferenced local variable
-main.c(121): warning C280: 'n': unreferenced local variable
-main.c(273): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 2 Warning(s).
-Rebuild target 'Target 1'
-compiling main.c...
-main.c(121): warning C280: 'm': unreferenced local variable
-main.c(121): warning C280: 'n': unreferenced local variable
-main.c(273): warning C206: 'Delay10us': missing function-prototype
-compiling LCD1602.c...
-compiling Timer0.c...
-compiling delaytime10us.c...
-compiling MotorRun.c...
-compiling DS18B20.c...
-compiling OneWire.c...
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(273): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 0474H
-Program Size: data=69.0 xdata=0 code=3178
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Rebuild target 'Target 1'
-compiling main.c...
-main.c(273): warning C206: 'Delay10us': missing function-prototype
-compiling LCD1602.c...
-compiling Timer0.c...
-compiling delaytime10us.c...
-compiling MotorRun.c...
-compiling DS18B20.c...
-compiling OneWire.c...
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 0474H
-Program Size: data=69.0 xdata=0 code=3178
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(275): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 0474H
-Program Size: data=69.0 xdata=0 code=3178
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(274): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 0474H
-Program Size: data=69.0 xdata=0 code=3178
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-main.c(270): warning C206: 'Delay10us': missing function-prototype
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 0474H
-Program Size: data=69.0 xdata=0 code=3178
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 5 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  DISPLAY_STRING
-    MODULE:  .\Objects\main.obj (MAIN)
-    ADDRESS: 0474H
-Program Size: data=69.0 xdata=0 code=3178
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 4 Warning(s).
-Build target 'Target 1'
-compiling main.c...
 main.c(122): warning C280: 'm': unreferenced local variable
 main.c(122): warning C280: 'n': unreferenced local variable
 main.c(274): warning C206: 'Delay10us': missing function-prototype
@@ -389,6 +23,74 @@ linking...
 Program Size: data=69.0 xdata=0 code=3179
 creating hex file from ".\Objects\Project"...
 ".\Objects\Project" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
+    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    000BH
+    TO:      000DH
+Program Size: data=69.0 xdata=0 code=3179
+creating hex file from ".\Objects\Project"...
+".\Objects\Project" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(122): warning C280: 'm': unreferenced local variable
+main.c(122): warning C280: 'n': unreferenced local variable
+main.c(270): warning C206: 'Delay10us': missing function-prototype
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
+    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    000BH
+    TO:      000DH
+Program Size: data=69.0 xdata=0 code=3179
+creating hex file from ".\Objects\Project"...
+".\Objects\Project" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
+    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    000BH
+    TO:      000DH
+Program Size: data=69.0 xdata=0 code=3179
+creating hex file from ".\Objects\Project"...
+".\Objects\Project" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+main.c(122): warning C280: 'm': unreferenced local variable
+main.c(122): warning C280: 'n': unreferenced local variable
+main.c(271): warning C206: 'Delay10us': missing function-prototype
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
+    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    000BH
+    TO:      000DH
+Program Size: data=69.0 xdata=0 code=3179
+creating hex file from ".\Objects\Project"...
+".\Objects\Project" - 0 Error(s), 5 Warning(s).
+Build target 'Target 1'
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
+    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
+    CALLER2: ?C_C51STARTUP
+*** WARNING L5: CODE SPACE MEMORY OVERLAP
+    FROM:    000BH
+    TO:      000DH
+Program Size: data=69.0 xdata=0 code=3179
+creating hex file from ".\Objects\Project"...
+".\Objects\Project" - 0 Error(s), 2 Warning(s).
 Build target 'Target 1'
 linking...
 *** WARNING L15: MULTIPLE CALL TO SEGMENT
