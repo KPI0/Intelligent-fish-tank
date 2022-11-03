@@ -9,4 +9,6 @@
 ## Proteus仿真图：
 ![](https://github.com/KPI0/Intelligent-fish-tank/blob/main/Proteus.png)   
 注意：利用Proteus仿真，温度无法读取，原因未知。实物测试正常。
-## 实物图：
+## 实物连接图：
+## 软件工具:
+部分所需软件放在[Embed](https://github.com/KPI0/Embed)库中。
