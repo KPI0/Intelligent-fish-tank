@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   ONEWIRE                                                           10/29/2022 15:54:04 PAGE 1   
+C51 COMPILER V9.52.0.0   ONEWIRE                                                           11/05/2022 13:48:01 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE ONEWIRE
@@ -18,84 +18,89 @@ line level    source
    8            * @param  无
    9            * @retval 从机响应位，0为响应，1为未响应
   10            */
-  11          unsigned char OneWire_Init(void)
-  12          {
-  13   1        unsigned char i;
-  14   1        unsigned char AckBit;
-  15   1        OneWire_DQ=1;
-  16   1        OneWire_DQ=0;
-  17   1        i = 247;while (--i);    //Delay 500us
-  18   1        OneWire_DQ=1;
-  19   1        i = 32;while (--i);     //Delay 70us
-  20   1        AckBit=OneWire_DQ;
-  21   1        i = 247;while (--i);    //Delay 500us
-  22   1        return AckBit;
-  23   1      }
-  24          
-  25          /**
-  26            * @brief  单总线发送一位
-  27            * @param  Bit 要发送的位
-  28            * @retval 无
-  29            */
-  30          void OneWire_SendBit(unsigned char Bit)
-  31          {
-  32   1        unsigned char i;
-  33   1        OneWire_DQ=0;
-  34   1        i = 4;while (--i);      //Delay 10us
-  35   1        OneWire_DQ=Bit;
-  36   1        i = 24;while (--i);     //Delay 50us
-  37   1        OneWire_DQ=1;
-  38   1      }
-  39          
-  40          /**
-  41            * @brief  单总线接收一位
-  42            * @param  无
-  43            * @retval 读取的位
-  44            */
-  45          unsigned char OneWire_ReceiveBit(void)
-  46          {
-  47   1        unsigned char i;
-  48   1        unsigned char Bit;
-  49   1        OneWire_DQ=0;
-  50   1        i = 2;while (--i);      //Delay 5us
-  51   1        OneWire_DQ=1;
-  52   1        i = 2;while (--i);      //Delay 5us
-  53   1        Bit=OneWire_DQ;
-  54   1        i = 24;while (--i);     //Delay 50us
-C51 COMPILER V9.52.0.0   ONEWIRE                                                           10/29/2022 15:54:04 PAGE 2   
+  11            
+  12          unsigned char OneWire_Init(void)
+  13          {
+  14   1        unsigned char i;
+  15   1        unsigned char AckBit;
+  16   1        OneWire_DQ=1;
+  17   1        OneWire_DQ=0;
+  18   1        i = 247;while (--i);    //Delay 500us
+  19   1        OneWire_DQ=1;
+  20   1        i = 32;while (--i);     //Delay 70us
+  21   1        AckBit=OneWire_DQ;
+  22   1        i = 247;while (--i);    //Delay 500us
+  23   1        return AckBit;
+  24   1      }
+  25          
+  26          /**
+  27            * @brief  单总线发送一位
+  28            * @param  Bit 要发送的位
+  29            * @retval 无
+  30            */
+  31          
+  32          void OneWire_SendBit(unsigned char Bit)
+  33          {
+  34   1        unsigned char i;
+  35   1        OneWire_DQ=0;
+  36   1        i = 4;while (--i);      //Delay 10us
+  37   1        OneWire_DQ=Bit;
+  38   1        i = 24;while (--i);     //Delay 50us
+  39   1        OneWire_DQ=1;
+  40   1      }
+  41          
+  42          /**
+  43            * @brief  单总线接收一位
+  44            * @param  无
+  45            * @retval 读取的位
+  46            */
+  47          
+  48          unsigned char OneWire_ReceiveBit(void)
+  49          {
+  50   1        unsigned char i;
+  51   1        unsigned char Bit;
+  52   1        OneWire_DQ=0;
+  53   1        i = 2;while (--i);      //Delay 5us
+  54   1        OneWire_DQ=1;
+C51 COMPILER V9.52.0.0   ONEWIRE                                                           11/05/2022 13:48:01 PAGE 2   
 
-  55   1        return Bit;
-  56   1      }
-  57          
-  58          /**
-  59            * @brief  单总线发送一个字节
-  60            * @param  Byte 要发送的字节
-  61            * @retval 无
-  62            */
-  63          void OneWire_SendByte(unsigned char Byte)
-  64          {
-  65   1        unsigned char i;
-  66   1        for(i=0;i<8;i++)
-  67   1        {
-  68   2          OneWire_SendBit(Byte&(0x01<<i));
-  69   2        }
-  70   1      }
-  71          
-  72          /**
-  73            * @brief  单总线接收一个字节
-  74            * @param  无
-  75            * @retval 接收的一个字节
-  76            */
-  77          unsigned char OneWire_ReceiveByte(void)
-  78          {
-  79   1        unsigned char i;
-  80   1        unsigned char Byte=0x00;
-  81   1        for(i=0;i<8;i++)
-  82   1        {
-  83   2          if(OneWire_ReceiveBit()){Byte|=(0x01<<i);}
-  84   2        }
-  85   1        return Byte;
-  86   1      }
+  55   1        i = 2;while (--i);      //Delay 5us
+  56   1        Bit=OneWire_DQ;
+  57   1        i = 24;while (--i);     //Delay 50us
+  58   1        return Bit;
+  59   1      }
+  60          
+  61          /**
+  62            * @brief  单总线发送一个字节
+  63            * @param  Byte 要发送的字节
+  64            * @retval 无
+  65            */
+  66          
+  67          void OneWire_SendByte(unsigned char Byte)
+  68          {
+  69   1        unsigned char i;
+  70   1        for(i=0;i<8;i++)
+  71   1        {
+  72   2          OneWire_SendBit(Byte&(0x01<<i));
+  73   2        }
+  74   1      }
+  75          
+  76          /**
+  77            * @brief  单总线接收一个字节
+  78            * @param  无
+  79            * @retval 接收的一个字节
+  80            */
+  81          
+  82          unsigned char OneWire_ReceiveByte(void)
+  83          {
+  84   1        unsigned char i;
+  85   1        unsigned char Byte=0x00;
+  86   1        for(i=0;i<8;i++)
+  87   1        {
+  88   2          if(OneWire_ReceiveBit()){Byte|=(0x01<<i);}
+  89   2        }
+  90   1        return Byte;
+  91   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE

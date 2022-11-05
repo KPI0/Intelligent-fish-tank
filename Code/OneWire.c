@@ -8,6 +8,7 @@ sbit OneWire_DQ=P3^7;
   * @param  无
   * @retval 从机响应位，0为响应，1为未响应
   */
+	
 unsigned char OneWire_Init(void)
 {
 	unsigned char i;
@@ -27,6 +28,7 @@ unsigned char OneWire_Init(void)
   * @param  Bit 要发送的位
   * @retval 无
   */
+
 void OneWire_SendBit(unsigned char Bit)
 {
 	unsigned char i;
@@ -42,6 +44,7 @@ void OneWire_SendBit(unsigned char Bit)
   * @param  无
   * @retval 读取的位
   */
+
 unsigned char OneWire_ReceiveBit(void)
 {
 	unsigned char i;
@@ -60,6 +63,7 @@ unsigned char OneWire_ReceiveBit(void)
   * @param  Byte 要发送的字节
   * @retval 无
   */
+
 void OneWire_SendByte(unsigned char Byte)
 {
 	unsigned char i;
@@ -74,6 +78,7 @@ void OneWire_SendByte(unsigned char Byte)
   * @param  无
   * @retval 接收的一个字节
   */
+
 unsigned char OneWire_ReceiveByte(void)
 {
 	unsigned char i;

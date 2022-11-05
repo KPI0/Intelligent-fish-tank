@@ -12,6 +12,7 @@ sbit LCD_EN=P2^7;
   * @param  无
   * @retval 无
   */
+	
 void LCD_Delay()
 {
 	unsigned char i, j;
@@ -29,6 +30,7 @@ void LCD_Delay()
   * @param  Command 要写入的命令
   * @retval 无
   */
+
 void LCD_WriteCommand(unsigned char Command)
 {
 	LCD_RS=0;
@@ -45,6 +47,7 @@ void LCD_WriteCommand(unsigned char Command)
   * @param  Data 要写入的数据
   * @retval 无
   */
+
 void LCD_WriteData(unsigned char Data)
 {
 	LCD_RS=1;
@@ -62,6 +65,7 @@ void LCD_WriteData(unsigned char Data)
   * @param  Column 列位置，范围：1~16
   * @retval 无
   */
+
 void LCD_SetCursor(unsigned char Line,unsigned char Column)
 {
 	if(Line==1)
@@ -79,6 +83,7 @@ void LCD_SetCursor(unsigned char Line,unsigned char Column)
   * @param  无
   * @retval 无
   */
+
 void LCD_Init()
 {
 	LCD_WriteCommand(0x38);//八位数据接口，两行显示，5*7点阵
@@ -94,6 +99,7 @@ void LCD_Init()
   * @param  Char 要显示的字符
   * @retval 无
   */
+
 void LCD_ShowChar(unsigned char Line,unsigned char Column,char Char)
 {
 	LCD_SetCursor(Line,Column);
@@ -107,6 +113,7 @@ void LCD_ShowChar(unsigned char Line,unsigned char Column,char Char)
   * @param  String 要显示的字符串
   * @retval 无
   */
+
 void LCD_ShowString(unsigned char Line,unsigned char Column,char *String)
 {
 	unsigned char i;
@@ -120,6 +127,7 @@ void LCD_ShowString(unsigned char Line,unsigned char Column,char *String)
 /**
   * @brief  返回值=X的Y次方
   */
+
 int LCD_Pow(int X,int Y)
 {
 	unsigned char i;
@@ -139,6 +147,7 @@ int LCD_Pow(int X,int Y)
   * @param  Length 要显示数字的长度，范围：1~5
   * @retval 无
   */
+
 void LCD_ShowNum(unsigned char Line,unsigned char Column,unsigned int Number,unsigned char Length)
 {
 	unsigned char i;
@@ -157,6 +166,7 @@ void LCD_ShowNum(unsigned char Line,unsigned char Column,unsigned int Number,uns
   * @param  Length 要显示数字的长度，范围：1~5
   * @retval 无
   */
+
 void LCD_ShowSignedNum(unsigned char Line,unsigned char Column,int Number,unsigned char Length)
 {
 	unsigned char i;
@@ -186,6 +196,7 @@ void LCD_ShowSignedNum(unsigned char Line,unsigned char Column,int Number,unsign
   * @param  Length 要显示数字的长度，范围：1~4
   * @retval 无
   */
+
 void LCD_ShowHexNum(unsigned char Line,unsigned char Column,unsigned int Number,unsigned char Length)
 {
 	unsigned char i,SingleNumber;
@@ -212,6 +223,7 @@ void LCD_ShowHexNum(unsigned char Line,unsigned char Column,unsigned int Number,
   * @param  Length 要显示数字的长度，范围：1~16
   * @retval 无
   */
+
 void LCD_ShowBinNum(unsigned char Line,unsigned char Column,unsigned int Number,unsigned char Length)
 {
 	unsigned char i;

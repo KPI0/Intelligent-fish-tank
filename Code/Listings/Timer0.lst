@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   TIMER0                                                            10/29/2022 15:54:03 PAGE 1   
+C51 COMPILER V9.52.0.0   TIMER0                                                            11/05/2022 13:48:01 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMER0
@@ -16,36 +16,36 @@ line level    source
    6            * @retval 无
    7            */
    8            
-   9            
-  10          unsigned char Sec=0,Min=0,Hour=0;
-  11          int zhuanFlag=0;
-  12          void Timer0Init(void)
-  13          {
-  14   1        TMOD &= 0xF0;   //设置定时器模式
-  15   1        TMOD |= 0x01;   //设置定时器模式
-  16   1        TL0 = 0x18;   //设置定时初值
-  17   1        TH0 = 0xFC;   //设置定时初值
-  18   1        TF0 = 0;    //清除TF0标志
-  19   1        TR0 = 1;    //定时器0开始计时
-  20   1        ET0=1;
-  21   1        EA=1;
-  22   1        PT0=0;
-  23   1      }
-  24          
-  25          /*定时器中断函数模板
-  26          void Timer0_Routine() interrupt 1
-  27          {
-  28            static unsigned int T0Count;
-  29            TL0 = 0x18;   //设置定时初值
-  30            TH0 = 0xFC;   //设置定时初值
-  31            T0Count++;
-  32            if(T0Count>=1000)
-  33            {
-  34              T0Count=0;
-  35              
-  36            }
-  37          }
-  38          */
+   9          unsigned char Sec=0,Min=0,Hour=0;
+  10          int zhuanFlag=0;
+  11          void Timer0Init(void)
+  12          {
+  13   1        TMOD &= 0xF0;   //设置定时器模式
+  14   1        TMOD |= 0x01;   //设置定时器模式
+  15   1        TL0 = 0x18;   //设置定时初值
+  16   1        TH0 = 0xFC;   //设置定时初值
+  17   1        TF0 = 0;    //清除TF0标志
+  18   1        TR0 = 1;    //定时器0开始计时
+  19   1        ET0=1;
+  20   1        EA=1;
+  21   1        PT0=0;
+  22   1      }
+  23          
+  24          /*定时器中断函数模板
+  25          void Timer0_Routine() interrupt 1
+  26          {
+  27            static unsigned int T0Count;
+  28            TL0 = 0x18;   //设置定时初值
+  29            TH0 = 0xFC;   //设置定时初值
+  30            T0Count++;
+  31            if(T0Count>=1000)
+  32            {
+  33              T0Count=0;
+  34              
+  35            }
+  36          }
+  37          */
+  38          
   39          void Timer0_Routine() interrupt 1
   40          {
   41   1        static unsigned int T0Count,HourCount;
@@ -62,7 +62,7 @@ line level    source
   52   3              Sec=0;    //60秒到，Sec清0，Min自增
   53   3              Min++;
   54   3              if(Min>=60)
-C51 COMPILER V9.52.0.0   TIMER0                                                            10/29/2022 15:54:03 PAGE 2   
+C51 COMPILER V9.52.0.0   TIMER0                                                            11/05/2022 13:48:01 PAGE 2   
 
   55   3              {
   56   4                Min=0;  //60分钟到，Min清0，Hour自增

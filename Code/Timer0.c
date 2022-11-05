@@ -6,7 +6,6 @@
   * @retval 无
   */
 	
-	
 unsigned char Sec=0,Min=0,Hour=0;
 int zhuanFlag=0;
 void Timer0Init(void)
@@ -36,6 +35,7 @@ void Timer0_Routine() interrupt 1
 	}
 }
 */
+
 void Timer0_Routine() interrupt 1
 {
 	static unsigned int T0Count,HourCount;

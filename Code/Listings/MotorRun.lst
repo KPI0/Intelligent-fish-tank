@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   MOTORRUN                                                          10/29/2022 15:54:04 PAGE 1   
+C51 COMPILER V9.52.0.0   MOTORRUN                                                          11/05/2022 13:48:01 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MOTORRUN
@@ -24,54 +24,55 @@ line level    source
   14          drct：旋转方向，0：顺时针，1：逆时针
   15          speed：转速，范围[1,100]
   16          */
-  17          void MotorRun(unsigned int nangle, drct, speed)         //nangle=4096为一圈            speed转速75`400
-  18          {
-  19   1        uint step;
-  20   1        step=0;
-  21   1        if(drct==0)
-  22   1        {
-  23   2          while(nangle--)
-  24   2          {
-  25   3            switch(step)//8拍方式驱动
-  26   3            {
-  27   4              case 0:MA=1;MB=0;MC=0;MD=0;break;
-  28   4              case 1:MA=1;MB=1;MC=0;MD=0;break;
-  29   4              case 2:MA=0;MB=1;MC=0;MD=0;break;
-  30   4              case 3:MA=0;MB=1;MC=1;MD=0;break;
-  31   4              case 4:MA=0;MB=0;MC=1;MD=0;break;
-  32   4              case 5:MA=0;MB=0;MC=1;MD=1;break;
-  33   4              case 6:MA=0;MB=0;MC=0;MD=1;break;
-  34   4              case 7:MA=1;MB=0;MC=0;MD=1;break;
-  35   4            }
-  36   3            if(step==7)step=0;
-  37   3            else step++;
-  38   3            delay(speed);
-  39   3          }
-  40   2        }
-  41   1        else
-  42   1        {
-  43   2          while(nangle--)
-  44   2          {
-  45   3            switch(step)
-  46   3            {
-  47   4              case 0:MA=1;MB=0;MC=0;MD=1;break;
-  48   4              case 1:MA=0;MB=0;MC=0;MD=1;break;
-  49   4              case 2:MA=0;MB=0;MC=1;MD=1;break;
-  50   4              case 3:MA=0;MB=0;MC=1;MD=0;break;
-  51   4              case 4:MA=0;MB=1;MC=1;MD=0;break;
-  52   4              case 5:MA=0;MB=1;MC=0;MD=0;break;
-  53   4              case 6:MA=1;MB=1;MC=0;MD=0;break;
-  54   4              case 7:MA=1;MB=0;MC=0;MD=0;break;
-C51 COMPILER V9.52.0.0   MOTORRUN                                                          10/29/2022 15:54:04 PAGE 2   
+  17          
+  18          void MotorRun(unsigned int nangle, drct, speed)         //nangle=4096为一圈            speed转速75`400
+  19          {
+  20   1        uint step;
+  21   1        step=0;
+  22   1        if(drct==0)
+  23   1        {
+  24   2          while(nangle--)
+  25   2          {
+  26   3            switch(step)//8拍方式驱动
+  27   3            {
+  28   4              case 0:MA=1;MB=0;MC=0;MD=0;break;
+  29   4              case 1:MA=1;MB=1;MC=0;MD=0;break;
+  30   4              case 2:MA=0;MB=1;MC=0;MD=0;break;
+  31   4              case 3:MA=0;MB=1;MC=1;MD=0;break;
+  32   4              case 4:MA=0;MB=0;MC=1;MD=0;break;
+  33   4              case 5:MA=0;MB=0;MC=1;MD=1;break;
+  34   4              case 6:MA=0;MB=0;MC=0;MD=1;break;
+  35   4              case 7:MA=1;MB=0;MC=0;MD=1;break;
+  36   4            }
+  37   3            if(step==7)step=0;
+  38   3            else step++;
+  39   3            delay(speed);
+  40   3          }
+  41   2        }
+  42   1        else
+  43   1        {
+  44   2          while(nangle--)
+  45   2          {
+  46   3            switch(step)
+  47   3            {
+  48   4              case 0:MA=1;MB=0;MC=0;MD=1;break;
+  49   4              case 1:MA=0;MB=0;MC=0;MD=1;break;
+  50   4              case 2:MA=0;MB=0;MC=1;MD=1;break;
+  51   4              case 3:MA=0;MB=0;MC=1;MD=0;break;
+  52   4              case 4:MA=0;MB=1;MC=1;MD=0;break;
+  53   4              case 5:MA=0;MB=1;MC=0;MD=0;break;
+  54   4              case 6:MA=1;MB=1;MC=0;MD=0;break;
+C51 COMPILER V9.52.0.0   MOTORRUN                                                          11/05/2022 13:48:01 PAGE 2   
 
-  55   4            }
-  56   3            if(step==7)step=0;
-  57   3            else step++;
-  58   3            delay(speed);
-  59   3          }
-  60   2        }
-  61   1        MA=0;MB=0;MC=0;MD=0;
-  62   1      }
+  55   4              case 7:MA=1;MB=0;MC=0;MD=0;break;
+  56   4            }
+  57   3            if(step==7)step=0;
+  58   3            else step++;
+  59   3            delay(speed);
+  60   3          }
+  61   2        }
+  62   1        MA=0;MB=0;MC=0;MD=0;
+  63   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
