@@ -22,11 +22,8 @@ sbit RE1=P2^0;
 sbit RE2=P2^1;
 
 unsigned char code word3[]="0123456789";
-unsigned int Set=40;
 unsigned int Now;
-unsigned int count_T0=0,count_1ms,miao=0;
 unsigned int High_Time;
-unsigned char flag;
 
 /********函数总集*********/
 void KEY1_Scan();
@@ -39,7 +36,6 @@ void Timer0_Init();
 void delayms(unsigned char t);
 void scan_key();
 unsigned int WAVE();
-void display_string();
 void Timer_delay(unsigned int BS);
 void jidianqiInit();
 float T;
@@ -49,11 +45,7 @@ void main()
 {
 	unsigned char bai,shi,ge;
 	jidianqiInit();
-	
-	lcdInit();
-	display_string();
-		
-	LCD_Init();
+	lcdInit();		
 	Timer0Init();
 	
 	DS18B20_ConvertT();		//上电先转换一次温度，防止第一次读数据错误
@@ -116,11 +108,7 @@ void Timer_delay(unsigned int BS)//T1延时±0.5ms
 		TF1=0;
 	}
 }
-/*显示开始的字母*/
-void display_string()
-{
-	unsigned m,n;
-}
+
 /*超声波计算时间*/
 unsigned int WAVE()
 {
@@ -208,12 +196,6 @@ void Timer0_Init()
 	TR0=1;
 	TR1=1;
 }
-void Timer0() interrupt 1
-{
-	TH0=0;
-	TL0=0;
-
-}
 
 /*按键扫描*/
 void scan_key()
@@ -264,14 +246,22 @@ void KEY1_Scan()
 		
 	}
 }
+
+/***********按键二控制喂食***************/
+/**
+  * @brief  按键二按下控制步进电机先顺时针半圈再逆时针半圈
+  * @param  无
+  * @retval 无
+  */
+
 void KEY2_Scan()
 {
 	if(KEY2 == 0)
 	{
-		Delay10us();
+		Delay(200);
 		if(KEY2 == 0)
 		{
-			Delay10us();
+			Delay(200);
 			MotorRun(4389/2,1,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动； speed转速75`400；
 			MotorRun(4389/2,0,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动； speed转速75`400；
 		}

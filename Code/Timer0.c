@@ -63,17 +63,4 @@ void Timer0_Routine() interrupt 1
 			}
 		}
 	}
-		if(Sec==10)
-		{
-			if(zhuanFlag == 0)
-			{
-				MotorRun(4389/2,1,100);					//	nangle=4096为一圈； drct=0为顺时针转动，drct=1为顺时针转动； speed转速75`400；
-				zhuanFlag++;
-			}else 
-			{
-				MotorRun(4389/2,0,100);					//	nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动； speed转速75`400；
-				zhuanFlag =0;
-				HourCount =0;
-			}
-		}
 }

@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   TIMER0                                                            11/05/2022 13:48:01 PAGE 1   
+C51 COMPILER V9.52.0.0   TIMER0                                                            11/06/2022 12:47:42 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMER0
@@ -62,7 +62,7 @@ line level    source
   52   3              Sec=0;    //60秒到，Sec清0，Min自增
   53   3              Min++;
   54   3              if(Min>=60)
-C51 COMPILER V9.52.0.0   TIMER0                                                            11/05/2022 13:48:01 PAGE 2   
+C51 COMPILER V9.52.0.0   TIMER0                                                            11/06/2022 12:47:42 PAGE 2   
 
   55   3              {
   56   4                Min=0;  //60分钟到，Min清0，Hour自增
@@ -75,26 +75,11 @@ line level    source
   63   4            }
   64   3          }
   65   2        }
-  66   1          if(Sec==10)
-  67   1          {
-  68   2            if(zhuanFlag == 0)
-  69   2            {
-  70   3              MotorRun(4389/2,1,100);         //  nangle=4096为一圈； drct=0为顺时针转动，drct=1为顺时针�
-             -�动； speed转速75`400；
-  71   3              zhuanFlag++;
-  72   3            }else 
-  73   2            {
-  74   3              MotorRun(4389/2,0,100);         //  nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针�
-             -�动； speed转速75`400；
-  75   3              zhuanFlag =0;
-  76   3              HourCount =0;
-  77   3            }
-  78   2          }
-  79   1      }
+  66   1      }
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    210    ----
+   CODE SIZE        =    102    ----
    CONSTANT SIZE    =   ----    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

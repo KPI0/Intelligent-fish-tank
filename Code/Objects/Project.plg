@@ -7,15 +7,3 @@ E:\GitHub\Intelligent-fish-tank\Code\Project.uvproj
 Project File Date:  10/24/2022
 
 <h2>Output:</h2>
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER0_ROUTINE?TIMER0
-    CALLER2: ?C_C51STARTUP
-*** WARNING L5: CODE SPACE MEMORY OVERLAP
-    FROM:    000BH
-    TO:      000DH
-Program Size: data=69.0 xdata=0 code=3179
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 2 Warning(s).
