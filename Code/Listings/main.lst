@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   MAIN                                                              11/06/2022 12:58:19 PAGE 1   
+C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
@@ -62,7 +62,7 @@ line level    source
   52   1        Delay(100);     //等待转换完成
   53   1        LCD_Init();
   54   1        
-C51 COMPILER V9.52.0.0   MAIN                                                              11/06/2022 12:58:19 PAGE 2   
+C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 2   
 
   55   1        LCD_ShowString(1,1,"Temp:");
   56   1        LCD_ShowString(1,15,"C");
@@ -126,7 +126,7 @@ line level    source
  114          {
  115   1          unsigned int result;
  116   1          unsigned char p;
-C51 COMPILER V9.52.0.0   MAIN                                                              11/06/2022 12:58:19 PAGE 3   
+C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 3   
 
  117   1          TRIG=0;
  118   1          _nop_();//1微秒
@@ -190,7 +190,7 @@ line level    source
  176          void display_LCD(unsigned char hang,unsigned char lie,unsigned value) 
  177          {
  178   1        if(hang==0)
-C51 COMPILER V9.52.0.0   MAIN                                                              11/06/2022 12:58:19 PAGE 4   
+C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 4   
 
  179   1        {
  180   2          lcd_write_com(0x80+lie);
@@ -254,7 +254,7 @@ line level    source
  238   1        if(KEY1 == 0)
  239   1        {
  240   2          Delay(200);
-C51 COMPILER V9.52.0.0   MAIN                                                              11/06/2022 12:58:19 PAGE 5   
+C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 5   
 
  241   2          while(KEY1 == 0);
  242   2          
