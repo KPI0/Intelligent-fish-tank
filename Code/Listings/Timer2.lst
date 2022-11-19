@@ -1,0 +1,66 @@
+C51 COMPILER V9.52.0.0   TIMER2                                                            11/18/2022 20:33:23 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMER2
+OBJECT MODULE PLACED IN .\Objects\Timer2.obj
+COMPILER INVOKED BY: D:\Keil_vn\C51\BIN\C51.EXE Timer2.c BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Timer2.lst) TABS(2) 
+                    -OBJECT(.\Objects\Timer2.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          
+   3          #include "MotorRun.h"
+   4          extern unsigned char sec;
+   5          
+   6          
+   7          void Timer2Init(void)   //1??@11.0592MHz
+   8          {
+   9   1        //AUXR &= 0x02;   //?????12T??
+  10   1        TL2 = 0x66;   //???????
+  11   1        TH2 = 0xFC;   //???????
+  12   1        //AUXR |= 0x10;   //???2????
+  13   1        EA=1;
+  14   1        ET2=1;
+  15   1      
+  16   1        PT2=0;
+  17   1        TR2=1;
+  18   1      }
+  19          //void Timer2_Routine() interrupt 5
+  20          //{
+  21          //  static unsigned int T2Count;
+  22          //  TL2  = 0x66;    //??????
+  23          //  TH2  = 0xFC;    //??????
+  24          //  T2Count++;   //1000???
+  25          //      
+  26          //      if(T2Count>=1000) //?????,1s
+  27          //    {
+  28          //      T2Count=0;
+  29          //      sec++;      //1??,Sec??
+  30          //      
+  31          //        if(sec==20)
+  32          //        {
+  33          //        
+  34          //          MotorRun(4389/2,1,100);//nangle=4096???; drct=0??????,drct=1??????; speed??75`400;
+  35          //        MotorRun(4389/2,0,100);//nangle=4096???; drct=0??????,drct=1??????; speed??75`400;  
+  36          //        }
+  37          //      
+  38          
+  39          
+  40          //    }
+  41          //}
+  42          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     15    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

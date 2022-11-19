@@ -2,6 +2,7 @@
 #include "Delay.h"
 #include "LCD1602.h"
 #include "Timer0.h"
+#include "Timer1.h"
 #include "delaytime10us.h"
 #include "MotorRun.h"
 #include "OneWire.h"
@@ -20,7 +21,7 @@ sbit LCD_RS=P2^6;
 //按键输出控制ULN2003驱动板引脚
 sbit RE1=P2^0;
 sbit RE2=P2^1;
-
+//显示字符存储
 unsigned char code word3[]="0123456789";
 unsigned int Now;
 unsigned int High_Time;
@@ -33,6 +34,7 @@ void lcd_write_data(unsigned char dat);
 void lcdInit();
 void display_LCD(unsigned char hang,unsigned char lie,unsigned dat);
 void Timer0_Init();
+void Timer1_Init();
 void delayms(unsigned char t);
 void scan_key();
 unsigned int WAVE();
@@ -45,13 +47,12 @@ void main()
 {
 	unsigned char bai,shi,ge;
 	jidianqiInit();
-	lcdInit();		
+	lcdInit();
 	Timer0Init();
-	
+	Timer1Init();
 	DS18B20_ConvertT();		//上电先转换一次温度，防止第一次读数据错误
 	Delay(100);			//等待转换完成
 	LCD_Init();
-	
 	LCD_ShowString(1,1,"Temp:");
 	LCD_ShowString(1,15,"C");
 	LCD_ShowString(2,1,"High:");
@@ -75,25 +76,19 @@ void main()
 	  KEY1_Scan();
 		KEY2_Scan();
 		scan_key();
-		
     High_Time=WAVE();//超声波
-		
 		Now=(int)(High_Time*0.0175);
-	
 		bai=Now/100%10;
 		shi=Now/10%10;
 		ge=Now%10;
-		
 		if(bai!=0)
 		{
-	
 		 delayms(1);
 		}
 		display_LCD(1,7,word3[shi]);
 		delayms(1);
 		display_LCD(1,8,word3[ge]);
 		delayms(1);
-		
 	}
 }
 
@@ -118,7 +113,6 @@ unsigned int WAVE()
 		_nop_();//1微秒
 		TRIG=1;
 	  for(p=0;p<10;p++);//大于10us
-
 		TRIG=0;
 		while(ECHO==0);//等高电平来
     Timer0_Init();//开始计时记高电平时间即超声波发射--返回时间
@@ -157,7 +151,6 @@ void lcd_write_com(unsigned char com)
 	LCD_E=1;//写入时序
 	delayms(1);
 	LCD_E=0;
-
 }
 
 /*LCD写数据*/
@@ -172,6 +165,7 @@ void lcd_write_data(unsigned char dat)
 	delayms(1);
 	LCD_E=0;
 }
+
 /*LCD显示*/
 void display_LCD(unsigned char hang,unsigned char lie,unsigned value) 
 {
@@ -186,7 +180,6 @@ void display_LCD(unsigned char hang,unsigned char lie,unsigned value)
 	lcd_write_data(value);
 }
 
-
 /*定时器初始化*///T1延时，T0中断
 void Timer0_Init()
 {
@@ -200,10 +193,8 @@ void Timer0_Init()
 /*按键扫描*/
 void scan_key()
 {
-	
 	P1=0xf0;
 	if(P1!=0xff)delayms(10);
-
 }
 
 void delayms(unsigned char t)
@@ -221,7 +212,6 @@ void delayms(unsigned char t)
   */
 void jidianqiInit ()
 {
-	
 		RE1=0;
 		RE2=0;
 }

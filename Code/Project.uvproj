@@ -367,16 +367,6 @@
               <FilePath>.\LCD1602.h</FilePath>
             </File>
             <File>
-              <FileName>Timer0.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Timer0.c</FilePath>
-            </File>
-            <File>
-              <FileName>Timer0.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Timer0.h</FilePath>
-            </File>
-            <File>
               <FileName>delaytime10us.c</FileName>
               <FileType>1</FileType>
               <FilePath>E:\Download\5、基于51单片机——步进电机控制实验\5、基于51单片机——步进电机控制实验\delaytime10us.c</FilePath>
@@ -415,6 +405,26 @@
               <FileName>OneWire.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\OneWire.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Timer0.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer0.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Timer0.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Timer1.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer1.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Timer1.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 1   
+C51 COMPILER V9.52.0.0   MAIN                                                              11/19/2022 13:20:02 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE MAIN
@@ -12,286 +12,276 @@ line level    source
    2          #include "Delay.h"
    3          #include "LCD1602.h"
    4          #include "Timer0.h"
-   5          #include "delaytime10us.h"
-   6          #include "MotorRun.h"
-   7          #include "OneWire.h"
-   8          #include "DS18B20.h"
-   9          #include <intrins.h>
-  10          //HC-SR04超声波模块引脚
-  11          sbit TRIG=P1^6;
-  12          sbit ECHO=P1^7;
-  13          //KEY1、KEY2按键控制引脚
-  14          sbit KEY1=P3^1;
-  15          sbit KEY2=P3^0;
-  16          //LCD1602显示屏数据引脚
-  17          sbit LCD_E=P2^7;
-  18          sbit LCD_RW=P2^5;
-  19          sbit LCD_RS=P2^6;
-  20          //按键输出控制ULN2003驱动板引脚
-  21          sbit RE1=P2^0;
-  22          sbit RE2=P2^1;
-  23          
-  24          unsigned char code word3[]="0123456789";
-  25          unsigned int Now;
-  26          unsigned int High_Time;
-  27          
-  28          /********函数总集*********/
-  29          void KEY1_Scan();
-  30          void KEY2_Scan();
-  31          void lcd_write_com(unsigned char com);
-  32          void lcd_write_data(unsigned char dat);
-  33          void lcdInit();
-  34          void display_LCD(unsigned char hang,unsigned char lie,unsigned dat);
-  35          void Timer0_Init();
-  36          void delayms(unsigned char t);
-  37          void scan_key();
-  38          unsigned int WAVE();
-  39          void Timer_delay(unsigned int BS);
-  40          void jidianqiInit();
-  41          float T;
-  42          
-  43          /************************主函数************************/
-  44          void main()
-  45          {
-  46   1        unsigned char bai,shi,ge;
-  47   1        jidianqiInit();
-  48   1        lcdInit();    
-  49   1        Timer0Init();
-  50   1        
-  51   1        DS18B20_ConvertT();   //上电先转换一次温度，防止第一次读数据错误
-  52   1        Delay(100);     //等待转换完成
-  53   1        LCD_Init();
-  54   1        
-C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 2   
+   5          #include "Timer1.h"
+   6          #include "delaytime10us.h"
+   7          #include "MotorRun.h"
+   8          #include "OneWire.h"
+   9          #include "DS18B20.h"
+  10          #include <intrins.h>
+  11          //HC-SR04超声波模块引脚
+  12          sbit TRIG=P1^6;
+  13          sbit ECHO=P1^7;
+  14          //KEY1、KEY2按键控制引脚
+  15          sbit KEY1=P3^1;
+  16          sbit KEY2=P3^0;
+  17          //LCD1602显示屏数据引脚
+  18          sbit LCD_E=P2^7;
+  19          sbit LCD_RW=P2^5;
+  20          sbit LCD_RS=P2^6;
+  21          //按键输出控制ULN2003驱动板引脚
+  22          sbit RE1=P2^0;
+  23          sbit RE2=P2^1;
+  24          //显示字符存储
+  25          unsigned char code word3[]="0123456789";
+  26          unsigned int Now;
+  27          unsigned int High_Time;
+  28          
+  29          /********函数总集*********/
+  30          void KEY1_Scan();
+  31          void KEY2_Scan();
+  32          void lcd_write_com(unsigned char com);
+  33          void lcd_write_data(unsigned char dat);
+  34          void lcdInit();
+  35          void display_LCD(unsigned char hang,unsigned char lie,unsigned dat);
+  36          void Timer0_Init();
+  37          void Timer1_Init();
+  38          void delayms(unsigned char t);
+  39          void scan_key();
+  40          unsigned int WAVE();
+  41          void Timer_delay(unsigned int BS);
+  42          void jidianqiInit();
+  43          float T;
+  44          
+  45          /************************主函数************************/
+  46          void main()
+  47          {
+  48   1        unsigned char bai,shi,ge;
+  49   1        jidianqiInit();
+  50   1        lcdInit();
+  51   1        Timer0Init();
+  52   1        Timer1Init();
+  53   1        DS18B20_ConvertT();   //上电先转换一次温度，防止第一次读数据错误
+  54   1        Delay(100);     //等待转换完成
+C51 COMPILER V9.52.0.0   MAIN                                                              11/19/2022 13:20:02 PAGE 2   
 
-  55   1        LCD_ShowString(1,1,"Temp:");
-  56   1        LCD_ShowString(1,15,"C");
-  57   1        LCD_ShowString(2,1,"High:");
-  58   1        LCD_ShowString(2,15,"cm");
-  59   1        while(1)
-  60   1        {
-  61   2          DS18B20_ConvertT(); //转换温度
-  62   2          T=DS18B20_ReadT();  //读取温度
-  63   2          if(T<0)       //如果温度小于0
-  64   2          {
-  65   3            LCD_ShowChar(1,7,'-');  //显示负号
-  66   3            T=-T;     //将温度变为正数
-  67   3          }
-  68   2          else        //如果温度大于等于0
-  69   2          {
-  70   3            LCD_ShowChar(1,7,'+');  //显示正号
-  71   3          }
-  72   2          LCD_ShowNum(1,8,T,2);   //显示温度整数部分
-  73   2          LCD_ShowChar(1,10,'.');   //显示小数点
-  74   2          LCD_ShowNum(1,11,(unsigned long)(T*10000)%10000,3);//显示温度小数部分
-  75   2          KEY1_Scan();
-  76   2          KEY2_Scan();
-  77   2          scan_key();
-  78   2          
+  55   1        LCD_Init();
+  56   1        LCD_ShowString(1,1,"Temp:");
+  57   1        LCD_ShowString(1,15,"C");
+  58   1        LCD_ShowString(2,1,"High:");
+  59   1        LCD_ShowString(2,15,"cm");
+  60   1        while(1)
+  61   1        {
+  62   2          DS18B20_ConvertT(); //转换温度
+  63   2          T=DS18B20_ReadT();  //读取温度
+  64   2          if(T<0)       //如果温度小于0
+  65   2          {
+  66   3            LCD_ShowChar(1,7,'-');  //显示负号
+  67   3            T=-T;     //将温度变为正数
+  68   3          }
+  69   2          else        //如果温度大于等于0
+  70   2          {
+  71   3            LCD_ShowChar(1,7,'+');  //显示正号
+  72   3          }
+  73   2          LCD_ShowNum(1,8,T,2);   //显示温度整数部分
+  74   2          LCD_ShowChar(1,10,'.');   //显示小数点
+  75   2          LCD_ShowNum(1,11,(unsigned long)(T*10000)%10000,3);//显示温度小数部分
+  76   2          KEY1_Scan();
+  77   2          KEY2_Scan();
+  78   2          scan_key();
   79   2          High_Time=WAVE();//超声波
-  80   2          
-  81   2          Now=(int)(High_Time*0.0175);
-  82   2        
-  83   2          bai=Now/100%10;
-  84   2          shi=Now/10%10;
-  85   2          ge=Now%10;
-  86   2          
-  87   2          if(bai!=0)
-  88   2          {
-  89   3        
-  90   3           delayms(1);
-  91   3          }
-  92   2          display_LCD(1,7,word3[shi]);
-  93   2          delayms(1);
-  94   2          display_LCD(1,8,word3[ge]);
-  95   2          delayms(1);
-  96   2          
-  97   2        }
-  98   1      }
-  99          
- 100          void Timer_delay(unsigned int BS)//T1延时±0.5ms
- 101          {
- 102   1        unsigned int k;
- 103   1        for(k=0;k<BS;k++)
- 104   1        {
- 105   2          TH1=(65536-100)/256;
- 106   2          TL1=(65536-100)%256;
- 107   2          while(TF1==0);
- 108   2          TF1=0;
- 109   2        }
- 110   1      }
- 111          
- 112          /*超声波计算时间*/
- 113          unsigned int WAVE()
- 114          {
- 115   1          unsigned int result;
- 116   1          unsigned char p;
-C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 3   
+  80   2          Now=(int)(High_Time*0.0175);
+  81   2          bai=Now/100%10;
+  82   2          shi=Now/10%10;
+  83   2          ge=Now%10;
+  84   2          if(bai!=0)
+  85   2          {
+  86   3           delayms(1);
+  87   3          }
+  88   2          display_LCD(1,7,word3[shi]);
+  89   2          delayms(1);
+  90   2          display_LCD(1,8,word3[ge]);
+  91   2          delayms(1);
+  92   2        }
+  93   1      }
+  94          
+  95          void Timer_delay(unsigned int BS)//T1延时±0.5ms
+  96          {
+  97   1        unsigned int k;
+  98   1        for(k=0;k<BS;k++)
+  99   1        {
+ 100   2          TH1=(65536-100)/256;
+ 101   2          TL1=(65536-100)%256;
+ 102   2          while(TF1==0);
+ 103   2          TF1=0;
+ 104   2        }
+ 105   1      }
+ 106          
+ 107          /*超声波计算时间*/
+ 108          unsigned int WAVE()
+ 109          {
+ 110   1          unsigned int result;
+ 111   1          unsigned char p;
+ 112   1          TRIG=0;
+ 113   1          _nop_();//1微秒
+ 114   1          TRIG=1;
+ 115   1          for(p=0;p<10;p++);//大于10us
+ 116   1          TRIG=0;
+C51 COMPILER V9.52.0.0   MAIN                                                              11/19/2022 13:20:02 PAGE 3   
 
- 117   1          TRIG=0;
- 118   1          _nop_();//1微秒
- 119   1          TRIG=1;
- 120   1          for(p=0;p<10;p++);//大于10us
- 121   1      
- 122   1          TRIG=0;
- 123   1          while(ECHO==0);//等高电平来
- 124   1          Timer0_Init();//开始计时记高电平时间即超声波发射--返回时间
- 125   1          while(ECHO)
- 126   1          {
- 127   2             if((TH0>0x8c)|| (TH0==0x8c&&TL0>0xa0))break;
- 128   2          }
- 129   1          TR0=0;
- 130   1          //18us=18000ms=4650H  ;100us--18ms有效   超过36ms无效 36ms=8cA0
- 131   1           if((TH0<0x46)|| (TH0==0x46&&TL0<=0x50))
- 132   1           {
- 133   2             result=(TH0<<8)+TL0;
- 134   2             return result;
- 135   2           }
- 136   1          else return 0;
- 137   1      }
- 138          
- 139          /*LCD初始化*/
- 140          void lcdInit()
- 141          {
- 142   1        lcd_write_com(0x38);//字符为5*7点阵
- 143   1        lcd_write_com(0x0c);//显示开、光标关、闪烁关
- 144   1        lcd_write_com(0x06);//写入数据后光标右移一位，显示屏不动
- 145   1        lcd_write_com(0x01);//清屏
- 146   1        lcd_write_com(0x80);//设置数据指针起点
- 147   1      }
- 148          
- 149          /*LCD写命令*/
- 150          void lcd_write_com(unsigned char com)
- 151          {
- 152   1        LCD_E=0;
- 153   1        LCD_RS=0;//命令
- 154   1        LCD_RW=0;//写入
- 155   1        P0=com;
- 156   1        delayms(1);
- 157   1        LCD_E=1;//写入时序
- 158   1        delayms(1);
+ 117   1          while(ECHO==0);//等高电平来
+ 118   1          Timer0_Init();//开始计时记高电平时间即超声波发射--返回时间
+ 119   1          while(ECHO)
+ 120   1          {
+ 121   2             if((TH0>0x8c)|| (TH0==0x8c&&TL0>0xa0))break;
+ 122   2          }
+ 123   1          TR0=0;
+ 124   1          //18us=18000ms=4650H  ;100us--18ms有效   超过36ms无效 36ms=8cA0
+ 125   1           if((TH0<0x46)|| (TH0==0x46&&TL0<=0x50))
+ 126   1           {
+ 127   2             result=(TH0<<8)+TL0;
+ 128   2             return result;
+ 129   2           }
+ 130   1          else return 0;
+ 131   1      }
+ 132          
+ 133          /*LCD初始化*/
+ 134          void lcdInit()
+ 135          {
+ 136   1        lcd_write_com(0x38);//字符为5*7点阵
+ 137   1        lcd_write_com(0x0c);//显示开、光标关、闪烁关
+ 138   1        lcd_write_com(0x06);//写入数据后光标右移一位，显示屏不动
+ 139   1        lcd_write_com(0x01);//清屏
+ 140   1        lcd_write_com(0x80);//设置数据指针起点
+ 141   1      }
+ 142          
+ 143          /*LCD写命令*/
+ 144          void lcd_write_com(unsigned char com)
+ 145          {
+ 146   1        LCD_E=0;
+ 147   1        LCD_RS=0;//命令
+ 148   1        LCD_RW=0;//写入
+ 149   1        P0=com;
+ 150   1        delayms(1);
+ 151   1        LCD_E=1;//写入时序
+ 152   1        delayms(1);
+ 153   1        LCD_E=0;
+ 154   1      }
+ 155          
+ 156          /*LCD写数据*/
+ 157          void lcd_write_data(unsigned char dat)
+ 158          {
  159   1        LCD_E=0;
- 160   1      
- 161   1      }
- 162          
- 163          /*LCD写数据*/
- 164          void lcd_write_data(unsigned char dat)
- 165          {
+ 160   1        LCD_RW=0;//写入
+ 161   1        LCD_RS=1;//数据
+ 162   1        P0=dat;
+ 163   1        delayms(1);
+ 164   1        LCD_E=1;
+ 165   1        delayms(1);
  166   1        LCD_E=0;
- 167   1        LCD_RW=0;//写入
- 168   1        LCD_RS=1;//数据
- 169   1        P0=dat;
- 170   1        delayms(1);
- 171   1        LCD_E=1;
- 172   1        delayms(1);
- 173   1        LCD_E=0;
- 174   1      }
- 175          /*LCD显示*/
- 176          void display_LCD(unsigned char hang,unsigned char lie,unsigned value) 
- 177          {
- 178   1        if(hang==0)
-C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 4   
+ 167   1      }
+ 168          
+ 169          /*LCD显示*/
+ 170          void display_LCD(unsigned char hang,unsigned char lie,unsigned value) 
+ 171          {
+ 172   1        if(hang==0)
+ 173   1        {
+ 174   2          lcd_write_com(0x80+lie);
+ 175   2        }
+ 176   1        if(hang==1)
+ 177   1        {
+ 178   2          lcd_write_com(0xc0+lie);
+C51 COMPILER V9.52.0.0   MAIN                                                              11/19/2022 13:20:02 PAGE 4   
 
- 179   1        {
- 180   2          lcd_write_com(0x80+lie);
- 181   2        }
- 182   1        if(hang==1)
- 183   1        {
- 184   2          lcd_write_com(0xc0+lie);
- 185   2        }
- 186   1        lcd_write_data(value);
- 187   1      }
- 188          
- 189          
- 190          /*定时器初始化*///T1延时，T0中断
- 191          void Timer0_Init()
- 192          {
- 193   1        TMOD=0x11;
- 194   1        TH0=0;
- 195   1        TL0=0;
- 196   1        TR0=1;
- 197   1        TR1=1;
+ 179   2        }
+ 180   1        lcd_write_data(value);
+ 181   1      }
+ 182          
+ 183          /*定时器初始化*///T1延时，T0中断
+ 184          void Timer0_Init()
+ 185          {
+ 186   1        TMOD=0x11;
+ 187   1        TH0=0;
+ 188   1        TL0=0;
+ 189   1        TR0=1;
+ 190   1        TR1=1;
+ 191   1      }
+ 192          
+ 193          /*按键扫描*/
+ 194          void scan_key()
+ 195          {
+ 196   1        P1=0xf0;
+ 197   1        if(P1!=0xff)delayms(10);
  198   1      }
  199          
- 200          /*按键扫描*/
- 201          void scan_key()
- 202          {
- 203   1        
- 204   1        P1=0xf0;
- 205   1        if(P1!=0xff)delayms(10);
- 206   1      
- 207   1      }
- 208          
- 209          void delayms(unsigned char t)
- 210          {
- 211   1        unsigned i,j;
- 212   1        for(i=0;i<t;i++)
- 213   1           for(j=0;j<120;j++);
- 214   1      }
- 215          
- 216          /***********继电器初始化******************/
- 217          /**
- 218            * @brief  加水和抽水的初始化
- 219            * @param  无
- 220            * @retval 无
- 221            */
- 222          void jidianqiInit ()
- 223          {
- 224   1        
- 225   1          RE1=0;
- 226   1          RE2=0;
- 227   1      }
- 228          
- 229          /***********按键一控制换水***************/
- 230          /**
- 231            * @brief  按键一按下控制直流电机同时进行加水和抽水
- 232            * @param  无
- 233            * @retval 无
- 234            */
- 235          
- 236          void KEY1_Scan()
- 237          {
- 238   1        if(KEY1 == 0)
- 239   1        {
- 240   2          Delay(200);
-C51 COMPILER V9.52.0.0   MAIN                                                              11/17/2022 13:48:06 PAGE 5   
+ 200          void delayms(unsigned char t)
+ 201          {
+ 202   1        unsigned i,j;
+ 203   1        for(i=0;i<t;i++)
+ 204   1           for(j=0;j<120;j++);
+ 205   1      }
+ 206          
+ 207          /***********继电器初始化******************/
+ 208          /**
+ 209            * @brief  加水和抽水的初始化
+ 210            * @param  无
+ 211            * @retval 无
+ 212            */
+ 213          void jidianqiInit ()
+ 214          {
+ 215   1          RE1=0;
+ 216   1          RE2=0;
+ 217   1      }
+ 218          
+ 219          /***********按键一控制换水***************/
+ 220          /**
+ 221            * @brief  按键一按下控制直流电机同时进行加水和抽水
+ 222            * @param  无
+ 223            * @retval 无
+ 224            */
+ 225          
+ 226          void KEY1_Scan()
+ 227          {
+ 228   1        if(KEY1 == 0)
+ 229   1        {
+ 230   2          Delay(200);
+ 231   2          while(KEY1 == 0);
+ 232   2          
+ 233   2            Delay(200);
+ 234   2            RE1=~RE1;
+ 235   2            RE2=~RE2; 
+ 236   2          
+ 237   2        }
+ 238   1      }
+ 239          
+ 240          /***********按键二控制喂食***************/
+C51 COMPILER V9.52.0.0   MAIN                                                              11/19/2022 13:20:02 PAGE 5   
 
- 241   2          while(KEY1 == 0);
- 242   2          
- 243   2            Delay(200);
- 244   2            RE1=~RE1;
- 245   2            RE2=~RE2; 
- 246   2          
- 247   2        }
- 248   1      }
- 249          
- 250          /***********按键二控制喂食***************/
- 251          /**
- 252            * @brief  按键二按下控制步进电机先顺时针半圈再逆时针半圈
- 253            * @param  无
- 254            * @retval 无
- 255            */
- 256          
- 257          void KEY2_Scan()
- 258          {
- 259   1        if(KEY2 == 0)
- 260   1        {
- 261   2          Delay(200);
- 262   2          if(KEY2 == 0)
- 263   2          {
- 264   3            Delay(200);
- 265   3            MotorRun(4389/2,1,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动；
+ 241          /**
+ 242            * @brief  按键二按下控制步进电机先顺时针半圈再逆时针半圈
+ 243            * @param  无
+ 244            * @retval 无
+ 245            */
+ 246          
+ 247          void KEY2_Scan()
+ 248          {
+ 249   1        if(KEY2 == 0)
+ 250   1        {
+ 251   2          Delay(200);
+ 252   2          if(KEY2 == 0)
+ 253   2          {
+ 254   3            Delay(200);
+ 255   3            MotorRun(4389/2,1,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动；
              - speed转速75`400；
- 266   3            MotorRun(4389/2,0,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动；
+ 256   3            MotorRun(4389/2,0,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动；
              - speed转速75`400；
- 267   3          }
- 268   2        }
- 269   1      }
- 270          
+ 257   3          }
+ 258   2        }
+ 259   1      }
+ 260          
 
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
-   CODE SIZE        =    717    ----
+   CODE SIZE        =    720    ----
    CONSTANT SIZE    =     28    ----
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

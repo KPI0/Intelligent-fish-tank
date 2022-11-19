@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   ONEWIRE                                                           11/06/2022 12:43:03 PAGE 1   
+C51 COMPILER V9.52.0.0   ONEWIRE                                                           11/18/2022 20:33:14 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE ONEWIRE
@@ -62,7 +62,7 @@ line level    source
   52   1        OneWire_DQ=0;
   53   1        i = 2;while (--i);      //Delay 5us
   54   1        OneWire_DQ=1;
-C51 COMPILER V9.52.0.0   ONEWIRE                                                           11/06/2022 12:43:03 PAGE 2   
+C51 COMPILER V9.52.0.0   ONEWIRE                                                           11/18/2022 20:33:14 PAGE 2   
 
   55   1        i = 2;while (--i);      //Delay 5us
   56   1        Bit=OneWire_DQ;

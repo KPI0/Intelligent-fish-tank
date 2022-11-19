@@ -1,0 +1,108 @@
+C51 COMPILER V9.52.0.0   TIMER1                                                            11/19/2022 13:19:29 PAGE 1   
+
+
+C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMER1
+OBJECT MODULE PLACED IN .\Objects\Timer1.obj
+COMPILER INVOKED BY: D:\Keil_vn\C51\BIN\C51.EXE Timer1.c BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Timer1.lst) TABS(2) 
+                    -OBJECT(.\Objects\Timer1.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include "MotorRun.h"
+   3          sbit RE1=P2^0;
+   4          sbit RE2=P2^1;
+   5          /**
+   6            * @brief  定时器0初始化，1毫秒@12.000MHz
+   7            * @param  无
+   8            * @retval 无
+   9            */
+  10          
+  11          extern unsigned char Sec,Min,Hour,Day;//,SecStart
+  12          //extern int zhuanFlag;
+  13          //int day=0;
+  14          void Timer1Init(void)
+  15          {
+  16   1        TMOD &= 0x0F;   //设置定时器模式
+  17   1        TMOD |= 0x10;   //设置定时器模式
+  18   1        TL1 = 0x66;   //设置定时初值
+  19   1        TH1 = 0xFC;   //设置定时初值
+  20   1        TF1 = 0;    //清除TF0标志
+  21   1        TR1 = 1;    //定时器0开始计时
+  22   1        ET1=1;
+  23   1        EA=1;
+  24   1        PT1=0;
+  25   1      }
+  26          
+  27          void Timer1_Routine() interrupt 3
+  28          {
+  29   1        static unsigned int T1Count;
+  30   1        TL1 = 0x66;   //设置定时初值
+  31   1        TH1 = 0xFC;   //设置定时初值
+  32   1        T1Count++;   //1000次计数
+  33   1            
+  34   1            if(T1Count>=1000) //定时器分频，1s
+  35   1          {
+  36   2            T1Count=0;
+  37   2            Sec++;      //1秒到，Sec自增
+  38   2              if(Sec==10)
+  39   2              {
+  40   3                RE1=~RE1;
+  41   3                RE2=~RE2;
+  42   3              }
+  43   2              else if(Sec==15)
+  44   2              {
+  45   3                Sec=0;
+  46   3                RE1=~RE1;
+  47   3                RE2=~RE2;
+  48   3                MotorRun(4389/2,1,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动�
+             -�� speed转速75`400；
+  49   3                MotorRun(4389/2,0,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转动�
+             -�� speed转速75`400；
+  50   3              }
+  51   2      //        {
+  52   2      //          Sec=0;
+C51 COMPILER V9.52.0.0   TIMER1                                                            11/19/2022 13:19:29 PAGE 2   
+
+  53   2      //          Min++;
+  54   2      //          if(Min==60)
+  55   2      //          {
+  56   2      //            Min=0;
+  57   2      //            Hour++;
+  58   2      //            if(Hour==12)
+  59   2      //            {
+  60   2      //              MotorRun(4389/2,1,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转
+             -动； speed转速75`400；
+  61   2      //              MotorRun(4389/2,0,100);//nangle=4096为一圈； drct=0为逆时针转动，drct=1为顺时针转
+             -动； speed转速75`400；
+  62   2      //            }
+  63   2      //            else if(Hour==24)
+  64   2      //            {
+  65   2      //              Hour=0;
+  66   2      //              Day++;
+  67   2      //              if(Day==3)
+  68   2      //              {
+  69   2      //                Day=0;
+  70   2      //                RE1=~RE1;
+  71   2      //                RE2=~RE2;
+  72   2      //              }
+  73   2      //            }
+  74   2      //          }
+  75   2      //        }
+  76   2      
+  77   2          }
+  78   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    162    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

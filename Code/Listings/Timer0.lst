@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   TIMER0                                                            11/06/2022 12:47:42 PAGE 1   
+C51 COMPILER V9.52.0.0   TIMER0                                                            11/19/2022 13:16:45 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE TIMER0
@@ -9,7 +9,7 @@ COMPILER INVOKED BY: D:\Keil_vn\C51\BIN\C51.EXE Timer0.c BROWSE DEBUG OBJECTEXTE
 line level    source
 
    1          #include <REGX52.H>
-   2          #include "MotorRun.h"
+   2          //#include "MotorRun.h"
    3          /**
    4            * @brief  定时器0初始化，1毫秒@12.000MHz
    5            * @param  无
@@ -22,7 +22,7 @@ line level    source
   12          {
   13   1        TMOD &= 0xF0;   //设置定时器模式
   14   1        TMOD |= 0x01;   //设置定时器模式
-  15   1        TL0 = 0x18;   //设置定时初值
+  15   1        TL0 = 0x66;   //设置定时初值
   16   1        TH0 = 0xFC;   //设置定时初值
   17   1        TF0 = 0;    //清除TF0标志
   18   1        TR0 = 1;    //定时器0开始计时
@@ -31,52 +31,38 @@ line level    source
   21   1        PT0=0;
   22   1      }
   23          
-  24          /*定时器中断函数模板
-  25          void Timer0_Routine() interrupt 1
-  26          {
-  27            static unsigned int T0Count;
-  28            TL0 = 0x18;   //设置定时初值
-  29            TH0 = 0xFC;   //设置定时初值
-  30            T0Count++;
-  31            if(T0Count>=1000)
-  32            {
-  33              T0Count=0;
-  34              
-  35            }
-  36          }
-  37          */
-  38          
-  39          void Timer0_Routine() interrupt 1
-  40          {
-  41   1        static unsigned int T0Count,HourCount;
-  42   1        TL0 = 0x18;   //设置定时初值
-  43   1        TH0 = 0xFC;   //设置定时初值
-  44   1        T0Count++;   //1000次计数
-  45   1            
-  46   1            if(T0Count>=1000) //定时器分频，1s
-  47   1          {
-  48   2            T0Count=0;
-  49   2            Sec++;      //1秒到，Sec自增
-  50   2            if(Sec>=60)
-  51   2            {
-  52   3              Sec=0;    //60秒到，Sec清0，Min自增
-  53   3              Min++;
-  54   3              if(Min>=60)
-C51 COMPILER V9.52.0.0   TIMER0                                                            11/06/2022 12:47:42 PAGE 2   
+  24          void Timer0_Routine() interrupt 1
+  25          {
+  26   1        static unsigned int T0Count,HourCount;
+  27   1        TL0 = 0x18;   //设置定时初值
+  28   1        TH0 = 0xFC;   //设置定时初值
+  29   1        T0Count++;   //1000次计数
+  30   1            if(T0Count>=1000) //定时器分频，1s
+  31   1          {
+  32   2            T0Count=0;
+  33   2            Sec++;      //1秒到，Sec自增
+  34   2            if(Sec>=60)
+  35   2            {
+  36   3              Sec=0;    //60秒到，Sec清0，Min自增
+  37   3              Min++;
+  38   3              if(Min>=60)
+  39   3              {
+  40   4                Min=0;  //60分钟到，Min清0，Hour自增
+  41   4                Hour++;
+  42   4                if(Hour>=24)
+  43   4                {
+  44   5                  Hour=0; //24小时到，Hour清0
+  45   5                  HourCount++;
+  46   5              }
+  47   4            }
+  48   3          }
+  49   2        }
+  50   1      }
+  51          
+  52          
 
-  55   3              {
-  56   4                Min=0;  //60分钟到，Min清0，Hour自增
-  57   4                Hour++;
-  58   4                if(Hour>=24)
-  59   4                {
-  60   5                  Hour=0; //24小时到，Hour清0
-  61   5                  HourCount++;
-  62   5              }
-  63   4            }
-  64   3          }
-  65   2        }
-  66   1      }
 
+C51 COMPILER V9.52.0.0   TIMER0                                                            11/19/2022 13:16:45 PAGE 2   
 
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    102    ----
