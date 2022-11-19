@@ -29,10 +29,10 @@ unsigned int High_Time;
 /********函数总集*********/
 void KEY1_Scan();
 void KEY2_Scan();
-void lcd_write_com(unsigned char com);
-void lcd_write_data(unsigned char dat);
-void lcdInit();
-void display_LCD(unsigned char hang,unsigned char lie,unsigned dat);
+void LCD_WriteCommand(unsigned char Command);
+void LCD_WriteData(unsigned char Data);
+void LCD_Init();
+void LCD_SetCursor(unsigned char Line,unsigned char Column);
 void Timer0_Init();
 void Timer1_Init();
 void delayms(unsigned char t);
@@ -40,14 +40,13 @@ void scan_key();
 unsigned int WAVE();
 void Timer_delay(unsigned int BS);
 void jidianqiInit();
-float T;
+float T,H,S; //实时温度T、实时水位高度H、超声波测量高度S
+float D=80; //设置鱼缸高度D,单位cm，实时水位高度H=鱼缸高度D-超声波测量高度S
 
 /************************主函数************************/
 void main()
 {
-	unsigned char bai,shi,ge;
 	jidianqiInit();
-	lcdInit();
 	Timer0Init();
 	Timer1Init();
 	DS18B20_ConvertT();		//上电先转换一次温度，防止第一次读数据错误
@@ -76,19 +75,14 @@ void main()
 	  KEY1_Scan();
 		KEY2_Scan();
 		scan_key();
+		
     High_Time=WAVE();//超声波
 		Now=(int)(High_Time*0.0175);
-		bai=Now/100%10;
-		shi=Now/10%10;
-		ge=Now%10;
-		if(bai!=0)
-		{
-		 delayms(1);
-		}
-		display_LCD(1,7,word3[shi]);
-		delayms(1);
-		display_LCD(1,8,word3[ge]);
-		delayms(1);
+		S=Now;
+		LCD_ShowNum(2,7,D-S,3);	//显示高度整数部分
+		LCD_ShowChar(2,10,'.');		//显示小数点
+		LCD_ShowNum(2,11,(unsigned long)((D-S)*10000)%10000,3);//显示高度小数部分
+
 	}
 }
 
@@ -130,56 +124,6 @@ unsigned int WAVE()
 		else return 0;
 }
 
-/*LCD初始化*/
-void lcdInit()
-{
-  lcd_write_com(0x38);//字符为5*7点阵
-	lcd_write_com(0x0c);//显示开、光标关、闪烁关
-	lcd_write_com(0x06);//写入数据后光标右移一位，显示屏不动
-	lcd_write_com(0x01);//清屏
-	lcd_write_com(0x80);//设置数据指针起点
-}
-
-/*LCD写命令*/
-void lcd_write_com(unsigned char com)
-{
-  LCD_E=0;
-	LCD_RS=0;//命令
-	LCD_RW=0;//写入
-	P0=com;
-	delayms(1);
-	LCD_E=1;//写入时序
-	delayms(1);
-	LCD_E=0;
-}
-
-/*LCD写数据*/
-void lcd_write_data(unsigned char dat)
-{
-  LCD_E=0;
-	LCD_RW=0;//写入
-	LCD_RS=1;//数据
-	P0=dat;
-	delayms(1);
-	LCD_E=1;
-	delayms(1);
-	LCD_E=0;
-}
-
-/*LCD显示*/
-void display_LCD(unsigned char hang,unsigned char lie,unsigned value) 
-{
-  if(hang==0)
-	{
-	  lcd_write_com(0x80+lie);
-	}
-	if(hang==1)
-	{
-	  lcd_write_com(0xc0+lie);
-	}
-	lcd_write_data(value);
-}
-
 /*定时器初始化*///T1延时，T0中断
 void Timer0_Init()
 {
@@ -210,10 +154,11 @@ void delayms(unsigned char t)
   * @param  无
   * @retval 无
   */
+
 void jidianqiInit ()
 {
-		RE1=0;
-		RE2=0;
+	RE1=0;
+	RE2=0;
 }
 
 /***********按键一控制换水***************/
@@ -229,11 +174,9 @@ void KEY1_Scan()
 	{
 		Delay(200);
 		while(KEY1 == 0);
-		
-			Delay(200);
-			RE1=~RE1;
-			RE2=~RE2;	
-		
+		Delay(200);
+		RE1=~RE1;
+		RE2=~RE2;	
 	}
 }
 
@@ -257,4 +200,3 @@ void KEY2_Scan()
 		}
 	}
 }
-

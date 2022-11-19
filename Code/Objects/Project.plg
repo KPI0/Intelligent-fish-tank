@@ -3,293 +3,51 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Project:</h2>
-E:\1\Code\Project.uvproj
+E:\GitHub\Intelligent-fish-tank\Code\Project.uvproj
 Project File Date:  11/19/2022
 
 <h2>Output:</h2>
 compiling main.c...
 main.c - 0 Error(s), 0 Warning(s).
 Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3134
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3134
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3140
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3137
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3140
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3134
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3134
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
+compiling LCD1602.c...
+compiling delaytime10us.c...
+compiling MotorRun.c...
+compiling DS18B20.c...
+compiling OneWire.c...
 compiling Timer0.c...
-Timer0.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-compiling main.c...
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3130
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-*** WARNING L1: UNRESOLVED EXTERNAL SYMBOL
-    SYMBOL:  SEC
-    MODULE:  .\Objects\Timer1.obj (TIMER1)
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  SEC
-    MODULE:  .\Objects\Timer1.obj (TIMER1)
-    ADDRESS: 0757H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  SEC
-    MODULE:  .\Objects\Timer1.obj (TIMER1)
-    ADDRESS: 0759H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  SEC
-    MODULE:  .\Objects\Timer1.obj (TIMER1)
-    ADDRESS: 0764H
-*** WARNING L2: REFERENCE MADE TO UNRESOLVED EXTERNAL
-    SYMBOL:  SEC
-    MODULE:  .\Objects\Timer1.obj (TIMER1)
-    ADDRESS: 0769H
-Program Size: data=53.0 xdata=0 code=2965
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 6 Warning(s).
 compiling Timer1.c...
-Timer1.c - 0 Error(s), 0 Warning(s).
+linking...
+*** WARNING L15: MULTIPLE CALL TO SEGMENT
+    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
+    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
+    CALLER2: ?C_C51STARTUP
+Program Size: data=74.0 xdata=0 code=3388
+creating hex file from ".\Objects\Project"...
+".\Objects\Project" - 0 Error(s), 1 Warning(s).
 Build target 'Target 1'
 linking...
 *** WARNING L15: MULTIPLE CALL TO SEGMENT
     SEGMENT: ?PR?_MOTORRUN?MOTORRUN
     CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
     CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3130
+Program Size: data=74.0 xdata=0 code=3388
 creating hex file from ".\Objects\Project"...
 ".\Objects\Project" - 0 Error(s), 1 Warning(s).
+Rebuild target 'Target 1'
 compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3130
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3130
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3130
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3130
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3130
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=58.0 xdata=0 code=3130
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
+compiling LCD1602.c...
+compiling delaytime10us.c...
+compiling MotorRun.c...
+compiling DS18B20.c...
+compiling OneWire.c...
 compiling Timer0.c...
-Timer0.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=62.0 xdata=0 code=3212
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling Timer0.c...
-Timer0.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=62.0 xdata=0 code=3212
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling Timer0.c...
-Timer0.c - 0 Error(s), 0 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=62.0 xdata=0 code=3218
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling Timer0.c...
-Timer0.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=62.0 xdata=0 code=3218
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
 compiling Timer1.c...
-Timer1.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
 linking...
 *** WARNING L15: MULTIPLE CALL TO SEGMENT
     SEGMENT: ?PR?_MOTORRUN?MOTORRUN
     CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
     CALLER2: ?C_C51STARTUP
-Program Size: data=62.0 xdata=0 code=3218
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling Timer1.c...
-Timer1.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=62.0 xdata=0 code=3218
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling Timer1.c...
-Timer1.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=62.0 xdata=0 code=3218
-creating hex file from ".\Objects\Project"...
-".\Objects\Project" - 0 Error(s), 1 Warning(s).
-compiling main.c...
-main.c - 0 Error(s), 0 Warning(s).
-Build target 'Target 1'
-linking...
-*** WARNING L15: MULTIPLE CALL TO SEGMENT
-    SEGMENT: ?PR?_MOTORRUN?MOTORRUN
-    CALLER1: ?PR?TIMER1_ROUTINE?TIMER1
-    CALLER2: ?C_C51STARTUP
-Program Size: data=62.0 xdata=0 code=3218
+Program Size: data=74.0 xdata=0 code=3388
 creating hex file from ".\Objects\Project"...
 ".\Objects\Project" - 0 Error(s), 1 Warning(s).

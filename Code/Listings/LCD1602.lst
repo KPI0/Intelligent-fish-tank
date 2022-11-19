@@ -1,4 +1,4 @@
-C51 COMPILER V9.52.0.0   LCD1602                                                           11/18/2022 20:33:13 PAGE 1   
+C51 COMPILER V9.52.0.0   LCD1602                                                           11/19/2022 16:38:23 PAGE 1   
 
 
 C51 COMPILER V9.52.0.0, COMPILATION OF MODULE LCD1602
@@ -62,7 +62,7 @@ line level    source
   52          {
   53   1        LCD_RS=1;
   54   1        LCD_RW=0;
-C51 COMPILER V9.52.0.0   LCD1602                                                           11/18/2022 20:33:13 PAGE 2   
+C51 COMPILER V9.52.0.0   LCD1602                                                           11/19/2022 16:38:23 PAGE 2   
 
   55   1        LCD_DataPort=Data;
   56   1        LCD_EN=1;
@@ -126,7 +126,7 @@ line level    source
  114            * @retval 无
  115            */
  116          
-C51 COMPILER V9.52.0.0   LCD1602                                                           11/18/2022 20:33:13 PAGE 3   
+C51 COMPILER V9.52.0.0   LCD1602                                                           11/19/2022 16:38:23 PAGE 3   
 
  117          void LCD_ShowString(unsigned char Line,unsigned char Column,char *String)
  118          {
@@ -190,7 +190,7 @@ line level    source
  176   1        {
  177   2          LCD_WriteData('+');
  178   2          Number1=Number;
-C51 COMPILER V9.52.0.0   LCD1602                                                           11/18/2022 20:33:13 PAGE 4   
+C51 COMPILER V9.52.0.0   LCD1602                                                           11/19/2022 16:38:23 PAGE 4   
 
  179   2        }
  180   1        else
@@ -254,7 +254,7 @@ line level    source
 MODULE INFORMATION:   STATIC OVERLAYABLE
    CODE SIZE        =    393    ----
    CONSTANT SIZE    =   ----    ----
-C51 COMPILER V9.52.0.0   LCD1602                                                           11/18/2022 20:33:13 PAGE 5   
+C51 COMPILER V9.52.0.0   LCD1602                                                           11/19/2022 16:38:23 PAGE 5   
 
    XDATA SIZE       =   ----    ----
    PDATA SIZE       =   ----    ----

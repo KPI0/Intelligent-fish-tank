@@ -9,8 +9,8 @@ sbit RE2=P2^1;
   */
 
 extern unsigned char Sec,Min,Hour,Day;//,SecStart
-//extern int zhuanFlag;
-//int day=0;
+extern int zhuanFlag;
+int day=0;
 void Timer1Init(void)
 {
 	TMOD &= 0x0F;		//设置定时器模式

@@ -4,8 +4,8 @@
 ".\Objects\MotorRun.obj",
 ".\Objects\DS18B20.obj",
 ".\Objects\OneWire.obj",
-".\Objects\Timer1.obj",
-".\Objects\Timer0.obj" 
+".\Objects\Timer0.obj",
+".\Objects\Timer1.obj" 
 TO ".\Objects\Project" 
 PRINT(".\Listings\Project.m51") RAMSIZE(256) 
 DISABLEWARNING (16) 
