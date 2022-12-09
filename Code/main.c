@@ -41,7 +41,7 @@ unsigned int WAVE();
 void Timer_delay(unsigned int BS);
 void jidianqiInit();
 float T,H,S; //实时温度T、实时水位高度H、超声波测量高度S
-float D=80; //设置鱼缸高度D,单位cm，实时水位高度H=鱼缸高度D-超声波测量高度S
+float D=100; //设置鱼缸高度D,单位cm，实时水位高度H=鱼缸高度D-超声波测量高度S
 
 /************************主函数************************/
 void main()
