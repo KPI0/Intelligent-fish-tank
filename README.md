@@ -13,3 +13,7 @@
 ![](https://github.com/KPI0/Intelligent-fish-tank/blob/main/actual.png)
 ## 软件工具:
 部分所需软件放在[Embed](https://github.com/KPI0/Embed)库中。
+## PCB设计图
+[嘉立创开源广场](https://oshwhub.com/kpi0/zhi-neng-yu-gang-kong-zhi-xi-tong)
+![](https://github.com/KPI0/Intelligent-fish-tank/blob/main/SCH_fish-tank.png)
+![](https://github.com/KPI0/Intelligent-fish-tank/blob/main/3D_fish-tank.png)
